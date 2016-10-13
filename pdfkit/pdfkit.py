@@ -181,7 +181,7 @@ class PDFKit(object):
         :param options: dict {option name: value}
 
         returns:
-          iterator (option-key, option-value) 
+          iterator (option-key, option-value)
           - option names lower cased and prepended with
           '--' if necessary. Non-empty values cast to str
         """
@@ -192,10 +192,10 @@ class PDFKit(object):
                 normalized_key = '--%s' % self._normalize_arg(key)
             else:
                 normalized_key = self._normalize_arg(key)
-                
+
             if isinstance(value, (list, tuple)):
                 for optval in value:
-                    yield (normalized_key, optval)
+                    yield normalized_key + " " + optval
             else:
                 yield (normalized_key, str(value) if value else value)
 
